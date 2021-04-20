@@ -2,10 +2,11 @@ var mongoose = require('mongoose');
 
 //schema
 var schema = mongoose.Schema({
-    aboutMeContent: [{
-        content: String,
-        contentType: String,
-    }],
+    metadataContent: {
+        type: String,
+        require: true   
+    },
+    metadataType: String,
     isActive: {
         type: Boolean,
         default: true
@@ -21,4 +22,4 @@ var schema = mongoose.Schema({
 });
 
 //Export
-module.exports = mongoose.model('posts', schema);
+module.exports = mongoose.model('metadata', schema);

@@ -21,4 +21,4 @@ var schema = mongoose.Schema({
 });
 
 //Export
-module.exports = mongoose.model('posts', schema);
+module.exports = mongoose.model('aboutMe', schema);

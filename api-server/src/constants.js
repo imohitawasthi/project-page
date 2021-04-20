@@ -17,12 +17,12 @@ const handleResponse = (err, res, data) => {
 
 const cleanObject = (obj) => {
     for (var propName in obj) {
-      if (obj[propName] === null || obj[propName] === undefined) {
-        delete obj[propName];
-      }
+        if (obj[propName] === null || obj[propName] === undefined) {
+            delete obj[propName]
+        }
     }
     return obj
-  }
+}
 
 module.exports = {
     apiPort,
@@ -31,5 +31,5 @@ module.exports = {
     dbOptions,
 
     handleResponse,
-    cleanObject
+    cleanObject,
 }

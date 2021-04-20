@@ -2,22 +2,21 @@
 let routesPublic = require("express").Router()
 let routesPrivate = require("express").Router()
 
-//import controllers
-let aboutMeController = require("./controller/aboutMeController")
+//Controllers
+let controllers = require("./../meta/routes-config")
 
-let controllers = [
-    {
-        path: "about-me",
-        controller: aboutMeController,
-    },
-]
+//set APIs
+controllers.forEach(e => {
 
-//set API response
-
-controllers.forEach((e) => {
-    routesPublic.route(`/${e.path}`).get(e.controller.get)
-    routesPrivate.route(`/${e.path}`).post(e.controller.post)
-    routesPrivate.route(`/${e.path}/:id`).put(e.controller.put)
+    e.methods.GET.forEach(v => {
+        routesPublic.route(`/${e.path}${v}`).get(e.controller.get)
+    })
+    e.methods.POST.forEach(v => {
+        routesPublic.route(`/${e.path}${v}`).post(e.controller.post)
+    })
+    e.methods.PUT.forEach(v => {
+        routesPublic.route(`/${e.path}${v}`).put(e.controller.put)
+    })
 })
 
 //Export API routes
