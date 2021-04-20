@@ -1,22 +1,69 @@
-import { put, call, takeEvery } from 'redux-saga/effects'
+import { put, call, takeEvery } from "redux-saga/effects"
 
-import Actions from '../Actions/Creators'
-import Types from '../Actions/Types'
-import Assay from '../Assay/Assay'
+import Actions from "../Actions/Creators"
+import Types from "../Actions/Types"
+import Assay from "../Assay/Assay"
 
-function* fetchUsers(action) {
+function* fetchMenuOptions() {
+  const response = yield call(Assay.Master.fetchMenuOptions, Assay.Master, null)
+  if (response && !!!response.error) {
+      yield put(Actions.storeMenuOptions(response))
+  } else {
+      yield put(Actions.storeMenuOptions([]))
+  }
+}
 
-    const response = yield call(Assay.Master.fetchUsers, Assay.Master, null)
-    if(response && !!!response.error){
-        yield put(Actions.storeUsers(response))
-    }else{
-        yield put(Actions.storeUsers(null))
-    }
+function* fetchAboutMe() {
+  const response = yield call(Assay.Master.fetchAboutMe, Assay.Master, null)
+  if (response && !!!response.error) {
+      yield put(Actions.storeAboutMe(response))
+  } else {
+      yield put(Actions.storeAboutMe([]))
+  }
+}
+
+function* fetchCompletedProjects() {
+  const response = yield call(Assay.Master.fetchCompletedProjects, Assay.Master, null)
+  if (response && !!!response.error) {
+      yield put(Actions.storeCompletedProjects(response))
+  } else {
+      yield put(Actions.storeCompletedProjects([]))
+  }
+}
+
+function* fetchPendingProjects() {
+  const response = yield call(Assay.Master.fetchPendingProjects, Assay.Master, null)
+  if (response && !!!response.error) {
+      yield put(Actions.storePendingProjects(response))
+  } else {
+      yield put(Actions.storePendingProjects([]))
+  }
+}
+
+function* fetchPosts() {
+  const response = yield call(Assay.Master.fetchPosts, Assay.Master, null)
+  if (response && !!!response.error) {
+      yield put(Actions.storePosts(response))
+  } else {
+      yield put(Actions.storePosts([]))
+  }
+}
+
+function* fetchGoodReads() {
+  const response = yield call(Assay.Master.fetchGoodReads, Assay.Master, null)
+  if (response && !!!response.error) {
+      yield put(Actions.storeGoodReads(response))
+  } else {
+      yield put(Actions.storeGoodReads([]))
+  }
 }
 
 // Saga Watcher
 export function* watchMaster() {
-  yield* [
-    takeEvery(Types.FETCH_USERS, fetchUsers)
-  ]
+    yield* [takeEvery(Types.FETCH_MENU_OPTIONS, fetchMenuOptions)]
+    yield* [takeEvery(Types.FETCH_ABOUT_ME, fetchAboutMe)]
+    yield* [takeEvery(Types.FETCH_COMPLETED_PROJECTS, fetchCompletedProjects)]
+    yield* [takeEvery(Types.FETCH_PENDING_PROJECTS, fetchPendingProjects)]
+    yield* [takeEvery(Types.FETCH_POSTS, fetchPosts)]
+    yield* [takeEvery(Types.FETCH_GOOD_READS, fetchGoodReads)]
 }

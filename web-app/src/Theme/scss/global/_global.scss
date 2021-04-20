@@ -1,0 +1,160 @@
+@import "./theme";
+// -- Fonts
+
+// Font color
+.font-color-black {
+    color: $color-black;
+}
+
+.font-color-white {
+    color: $color-white;
+}
+
+.font-color-h-I {
+    color: $color-h-I;
+}
+
+.font-color-h-II {
+    color: $color-h-II;
+}
+
+.font-color-h-III {
+    color: $color-h-III;
+}
+
+.font-color-primary {
+    color: $color-primary;
+}
+
+// Font Style
+.font-style-semi-bold {
+    font-weight: 500;
+}
+
+.font-style-bold {
+    font-weight: 600;
+}
+
+.font-style-italic {
+    font-style: italic;
+}
+
+// Font Size
+.font-size-footnote {
+    font-size: 16px;
+    line-height: 27px;
+}
+
+.font-size-base {
+    font-size: 13px;
+    line-height: 23px;
+}
+
+.font-size-heading {
+    font-size: 20px;
+    line-height: 33px;
+}
+
+.font-size-big-heading {
+    font-size: 26px;
+    line-height: 42px;
+}
+
+.font-size-title {
+    font-size: 33px;
+    line-height: 52px;
+}
+
+.font-size-big-title {
+    font-size: 42px;
+    line-height: 65px;
+}
+
+// -- Background
+
+.background-main {
+    color: $color-background;
+}
+
+// -- Animation
+
+.animation-transition-ease {
+    transition: all 0.25s ease;
+}
+
+// -- Buttons
+
+.button-primary {
+    padding: 8px 16px;
+
+    border: 1px solid $color-primary;
+    border-radius: 4px;
+
+    background-color: $color-primary;
+
+    outline: none;
+    cursor: pointer;
+
+    @extend .font-size-base;
+    @extend .font-color-white;
+    @extend .font-style-bold;
+    @extend .animation-transition-ease;
+}
+
+.button-primary:hover {
+    box-shadow: 2px 2px 8px $shadow-black;
+}
+
+.button-primary:active {
+    box-shadow: 0px 0px 0px $shadow-black;
+}
+
+.button-secondary {
+    padding: 8px 16px;
+
+    border: 1px solid $color-primary;
+    border-radius: 4px;
+
+    background-color: $color-transparent;
+
+    outline: none;
+    cursor: pointer;
+
+    @extend .font-size-base;
+    @extend .font-color-black;
+    @extend .font-style-bold;
+    @extend .animation-transition-ease;
+}
+
+.button-secondary:hover {
+    box-shadow: 2px 2px 8px $shadow-black;
+}
+
+.button-secondary:active {
+    box-shadow: 0px 0px 0px $shadow-black;
+}
+
+.button-tertiary {
+    padding: 8px 16px;
+
+    border: 0px;
+    border-bottom: 1px solid $color-primary;
+
+    background-color: $color-transparent;
+
+    outline: none;
+    cursor: pointer;
+
+    @extend .font-size-base;
+    @extend .font-color-black;
+    @extend .font-style-bold;
+    @extend .animation-transition-ease;
+}
+
+.button-tertiary:hover {
+    box-shadow: 2px 2px 8px $shadow-black;
+}
+
+.button-tertiary:active {
+    box-shadow: 0px 0px 0px $shadow-black;
+}

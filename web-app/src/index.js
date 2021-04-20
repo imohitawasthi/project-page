@@ -1,7 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import { Provider } from 'react-redux'
-import { Router } from 'react-router-dom'
+import { BrowserRouter as Router } from 'react-router-dom'
 import { CookiesProvider } from 'react-cookie'
 
 import history from './history'
@@ -12,6 +12,8 @@ import Assay from './Assay/Assay'
 import Constants from './Assay/Constants'
 
 import 'bootstrap/dist/css/bootstrap.min.css';
+
+import './Theme/scss/index.scss'
 
 const store = configureStore()
 

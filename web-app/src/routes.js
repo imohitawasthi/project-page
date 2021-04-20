@@ -1,12 +1,17 @@
-import React from 'react'
-import { Route, Switch } from 'react-router'
+import React from "react";
+import {
+  Switch,
+  Route,
+} from "react-router-dom";
 
-import App from './Containers/App'
+import App from "./Containers/App"
 
 export default (
     <div>
         <Switch>
-            <App/>
+            <App>
+                <Route path="/"></Route>
+            </App>
         </Switch>
     </div>
 )
