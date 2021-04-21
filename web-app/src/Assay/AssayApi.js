@@ -7,7 +7,7 @@ class Api {
         this.createEndpoint = (baseURL) =>
             apisauce.create({
                 // base URL is read from the "constructor"
-                baseURL: baseURL + "/public-api/",
+                baseURL: baseURL + "/api-public/",
                 // here are some default headers
                 headers: {
                     "Cache-Control": "no-cache",
@@ -20,7 +20,7 @@ class Api {
             this.apiClient = this.createEndpoint(baseURL)
         }
 
-        this.fetchMenuOptions = () => this.apiClient.get("metadata", null, { params: { type: 'MENU' } })
+        this.fetchMenuOptions = () => this.apiClient.get("metadata/MENU")
         this.fetchAboutMe = () => this.apiClient.get("about-me", null, {})
         this.fetchCompletedProjects = () => this.apiClient.get("project", null, { params: { inProgress: false } })
         this.fetchPendingProjects = () => this.apiClient.get("project", null, { params: { inProgress: true } })

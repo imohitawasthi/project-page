@@ -12,10 +12,10 @@ controllers.forEach(e => {
         routesPublic.route(`/${e.path}${v}`).get(e.controller.get)
     })
     e.methods.POST.forEach(v => {
-        routesPublic.route(`/${e.path}${v}`).post(e.controller.post)
+        routesPrivate.route(`/${e.path}${v}`).post(e.controller.post)
     })
     e.methods.PUT.forEach(v => {
-        routesPublic.route(`/${e.path}${v}`).put(e.controller.put)
+        routesPrivate.route(`/${e.path}${v}`).put(e.controller.put)
     })
 })
 

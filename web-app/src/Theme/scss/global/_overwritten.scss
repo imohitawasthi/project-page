@@ -1,0 +1,9 @@
+@import './theme';
+@import './global';
+
+body {
+    @extend .background-main; 
+    @extend .app-font-face; 
+    @extend .font-color-black; 
+    @extend .font-size-base;
+}

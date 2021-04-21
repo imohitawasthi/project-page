@@ -5,13 +5,13 @@ import Actions from './../../Actions/Creators'
 
 const mapStateToProps = (state, ownProps) => {
     return {
-        users: state.master.users
+        menuOptions: state.master.menuOptions,
     }
 }
 
 const mapDispatchToProps = (dispatch) => {
     return {
-        fetchUsers: () => dispatch(Actions.fetchUsers()),
+        fetchMenuOptions: () => dispatch(Actions.fetchMenuOptions()),
     }
 }
 

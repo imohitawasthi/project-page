@@ -1,21 +1,42 @@
-import React, { Component } from 'react';
+import React, { Component } from "react"
+import History from "../../../history"
 
 class App extends Component {
-  
-  constructor(props){
-    super(props)
-    this.state = {}
-  }
+    constructor(props) {
+        super(props)
+        this.state = {}
+    }
 
-  render() {
-    return (
-      <div className="app-font-face">
-        <button className="button-tertiary">
-          Button
-        </button>
-      </div>
-    );
-  }
+    componentDidMount() {
+      this.props.fetchMenuOptions()
+    }
+
+    renderMenu = () => {
+        const { menuOptions } = this.props
+
+        return menuOptions.map((element, index) => (
+            <div className="app-option tab" key={index} onClick={() => History.push(element.url)}>
+                {element.label}
+            </div>
+        ))
+    }
+
+    render() {
+        const rootClassNames = `
+      container
+      padding-32-64
+      app-container 
+      margin-n-tb-16
+    `
+        const { children } = this.props
+
+        return (
+            <div className={rootClassNames}>
+                <div className="app-options margin-tb-16">{this.renderMenu()}</div>
+                <div className="app-children margin-tb-16">{children}</div>
+            </div>
+        )
+    }
 }
 
-export default App;
+export default App

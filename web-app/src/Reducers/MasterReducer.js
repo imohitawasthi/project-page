@@ -12,6 +12,8 @@ export const INITIAL_STATE = Immutable({
 })
 
 const storeMenuOptions = (state, action) => {
+
+  console.log(action)
   return state.merge({
     menuOptions: action.response
   })
@@ -48,12 +50,12 @@ const storeGoodReads = (state, action) => {
 }
 
 const ACTION_HANDLERS = {
-  // [Types.STORE_MENU_OPTIONS]: storeMenuOptions,
-  // [Types.STORE_ABOUT_ME]: storeAboutMe,
-  // [Types.STORE_COMPLETED_PROJECTS]: storeCompletedProjects,
-  // [Types.STORE_PENDING_PROJECTS]: storePendingProjects,
-  // [Types.STORE_POSTS]: storePosts,
-  // [Types.STORE_GOOD_READS]: storeGoodReads,
+  [Types.STORE_MENU_OPTIONS]: storeMenuOptions,
+  [Types.STORE_ABOUT_ME]: storeAboutMe,
+  [Types.STORE_COMPLETED_PROJECTS]: storeCompletedProjects,
+  [Types.STORE_PENDING_PROJECTS]: storePendingProjects,
+  [Types.STORE_POSTS]: storePosts,
+  [Types.STORE_GOOD_READS]: storeGoodReads,
 }
 
 export default createReducer(INITIAL_STATE, ACTION_HANDLERS)

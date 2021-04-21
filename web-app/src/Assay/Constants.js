@@ -1,11 +1,11 @@
 
-const apiPort = ''
-const apiHost = 'gorest.co.in'
-const apiProtocol = 'https://'
+const apiPort = ':8080'
+const apiHost = 'localhost'
+const apiProtocol = 'http://'
 
 const processResponse = (response) => {
-    if (response.ok && response.data && response.data.results && response.data.results.length > 0) {
-        return response.data.results[0]
+    if (response.ok && response.data && response.data.data && response.data.data.length > 0) {
+        return response.data.data
     } else {
         return {
             error: response.problem,

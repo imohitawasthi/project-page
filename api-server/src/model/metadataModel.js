@@ -2,10 +2,11 @@ var mongoose = require('mongoose');
 
 //schema
 var schema = mongoose.Schema({
-    metadataContent: {
-        type: String,
-        require: true   
-    },
+    metadataContent: [{
+        key: String,
+        label: String,
+        url: String
+    }],
     metadataType: String,
     isActive: {
         type: Boolean,

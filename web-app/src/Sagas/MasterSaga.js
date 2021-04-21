@@ -5,57 +5,60 @@ import Types from "../Actions/Types"
 import Assay from "../Assay/Assay"
 
 function* fetchMenuOptions() {
-  const response = yield call(Assay.Master.fetchMenuOptions, Assay.Master, null)
-  if (response && !!!response.error) {
-      yield put(Actions.storeMenuOptions(response))
-  } else {
-      yield put(Actions.storeMenuOptions([]))
-  }
+    const response = yield call(Assay.Master.fetchMenuOptions, Assay.Master, null)
+    if (response && !!!response.error) {
+        let data = response[0] || {}
+        data = data.metadataContent || []
+
+        yield put(Actions.storeMenuOptions(data))
+    } else {
+        yield put(Actions.storeMenuOptions([]))
+    }
 }
 
 function* fetchAboutMe() {
-  const response = yield call(Assay.Master.fetchAboutMe, Assay.Master, null)
-  if (response && !!!response.error) {
-      yield put(Actions.storeAboutMe(response))
-  } else {
-      yield put(Actions.storeAboutMe([]))
-  }
+    const response = yield call(Assay.Master.fetchAboutMe, Assay.Master, null)
+    if (response && !!!response.error) {
+        yield put(Actions.storeAboutMe(response))
+    } else {
+        yield put(Actions.storeAboutMe([]))
+    }
 }
 
 function* fetchCompletedProjects() {
-  const response = yield call(Assay.Master.fetchCompletedProjects, Assay.Master, null)
-  if (response && !!!response.error) {
-      yield put(Actions.storeCompletedProjects(response))
-  } else {
-      yield put(Actions.storeCompletedProjects([]))
-  }
+    const response = yield call(Assay.Master.fetchCompletedProjects, Assay.Master, null)
+    if (response && !!!response.error) {
+        yield put(Actions.storeCompletedProjects(response))
+    } else {
+        yield put(Actions.storeCompletedProjects([]))
+    }
 }
 
 function* fetchPendingProjects() {
-  const response = yield call(Assay.Master.fetchPendingProjects, Assay.Master, null)
-  if (response && !!!response.error) {
-      yield put(Actions.storePendingProjects(response))
-  } else {
-      yield put(Actions.storePendingProjects([]))
-  }
+    const response = yield call(Assay.Master.fetchPendingProjects, Assay.Master, null)
+    if (response && !!!response.error) {
+        yield put(Actions.storePendingProjects(response))
+    } else {
+        yield put(Actions.storePendingProjects([]))
+    }
 }
 
 function* fetchPosts() {
-  const response = yield call(Assay.Master.fetchPosts, Assay.Master, null)
-  if (response && !!!response.error) {
-      yield put(Actions.storePosts(response))
-  } else {
-      yield put(Actions.storePosts([]))
-  }
+    const response = yield call(Assay.Master.fetchPosts, Assay.Master, null)
+    if (response && !!!response.error) {
+        yield put(Actions.storePosts(response))
+    } else {
+        yield put(Actions.storePosts([]))
+    }
 }
 
 function* fetchGoodReads() {
-  const response = yield call(Assay.Master.fetchGoodReads, Assay.Master, null)
-  if (response && !!!response.error) {
-      yield put(Actions.storeGoodReads(response))
-  } else {
-      yield put(Actions.storeGoodReads([]))
-  }
+    const response = yield call(Assay.Master.fetchGoodReads, Assay.Master, null)
+    if (response && !!!response.error) {
+        yield put(Actions.storeGoodReads(response))
+    } else {
+        yield put(Actions.storeGoodReads([]))
+    }
 }
 
 // Saga Watcher
