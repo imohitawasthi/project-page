@@ -1,10 +1,16 @@
+@import "./../global/global";
+
 .app-container{
     
+    display: grid;
+
     .app-options {
 
         .app-option {
             
         }
+
+        @extend .margin-n-lr-8;
     }
 
     .app-children {

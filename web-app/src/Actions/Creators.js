@@ -25,6 +25,11 @@ const fetchGoodReads = () => ({
     type: Types.FETCH_GOOD_READS
 })
 
+const changeRoute = (route) => ({
+    type: Types.CHANGE_ROUTE,
+    route
+})
+
 //Store
 const storeMenuOptions = (response) => ({
     type: Types.STORE_MENU_OPTIONS,
@@ -64,6 +69,7 @@ export default {
     fetchPendingProjects,
     fetchPosts,
     fetchGoodReads,
+    changeRoute,
 
     // Store
     storeMenuOptions,

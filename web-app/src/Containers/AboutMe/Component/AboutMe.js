@@ -1,25 +1,26 @@
 import React, { Component } from 'react';
 
 class AboutMe extends Component {
-  
+
+
   constructor(props){
     super(props)
-    this.state = {}
+    this.state = {
+      name: "Hi, I'm Mohit."
+    }
   }
 
   componentDidMount() {
     this.props.fetchAboutMe()
   }
 
-  renderMenuTabs = () => {
-
-
-  }
-
   render() {
+
+    const { name } = this.state
+
     return (
       <div className="about-me-container">
-        
+        <div className="about-me-name">{name}</div>
       </div>
     );
   }

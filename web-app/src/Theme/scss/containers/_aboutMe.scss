@@ -1,3 +1,9 @@
+@import "./../global/global";
+
 .about-me-container{
     
+    .about-me-name {
+
+        @extend .font-size-title;
+    }
 }

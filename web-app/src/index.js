@@ -1,11 +1,11 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import { Provider } from 'react-redux'
-import { BrowserRouter as Router } from 'react-router-dom'
+import { Router } from 'react-router'
 import { CookiesProvider } from 'react-cookie'
 
 import history from './history'
-import routes from './routes'
+import Routes from './routes'
 import configureStore  from './Store/Store'
 
 import Assay from './Assay/Assay'
@@ -23,7 +23,7 @@ ReactDOM.render(
   <Provider store={store}>
     <CookiesProvider>
       <Router history={history}>
-        {routes}
+        <Routes /> 
       </Router>
     </CookiesProvider>
   </Provider>, 

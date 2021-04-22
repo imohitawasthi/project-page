@@ -7,6 +7,7 @@ export default createTypes(`
     FETCH_PENDING_PROJECTS
     FETCH_POSTS
     FETCH_GOOD_READS
+    CHANGE_ROUTE
 
     STORE_MENU_OPTIONS
     STORE_ABOUT_ME

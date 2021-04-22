@@ -8,14 +8,21 @@ class App extends Component {
     }
 
     componentDidMount() {
-      this.props.fetchMenuOptions()
+        this.props.fetchMenuOptions()
     }
 
     renderMenu = () => {
-        const { menuOptions } = this.props
+        const { menuOptions, currentRoute } = this.props
 
         return menuOptions.map((element, index) => (
-            <div className="app-option tab" key={index} onClick={() => History.push(element.url)}>
+            <div
+                className={`app-option tab ${element.url === currentRoute ? "tab-active" : ""}`}
+                key={index}
+                onClick={() => {
+                    History.push(element.url)
+                    this.props.changeRoute(element.url)
+                }}
+            >
                 {element.label}
             </div>
         ))
