@@ -31,6 +31,9 @@ function* fetchAboutMe() {
 function* fetchCompletedProjects() {
     const response = yield call(Assay.Master.fetchCompletedProjects, Assay.Master, null)
     if (response && !!!response.error) {
+        let data = response[0] || {}
+        data = data.aboutMeContent || []
+        
         yield put(Actions.storeCompletedProjects(response))
     } else {
         yield put(Actions.storeCompletedProjects([]))

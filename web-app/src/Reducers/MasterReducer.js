@@ -16,7 +16,8 @@ export const INITIAL_STATE = Immutable({
 const storeMenuOptions = (state, action) => {
 
   return state.merge({
-    menuOptions: action.response
+    menuOptions: action.response,
+    currentRoute: action.response[0].key
   })
 }
 
