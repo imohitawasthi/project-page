@@ -1,11 +1,20 @@
-import { connect } from "react-redux"
+import { connect } from 'react-redux'
 
-import AboutMe from "./Component/AboutMe"
-import Actions from "../../Actions/Creators"
+import AboutMe from './Component/AboutMe'
+import Actions from '../../Actions/Creators'
+
+import Constants from './../../Assay/Constants'
 
 const mapStateToProps = (state, ownProps) => {
+
+    const aboutMeMetaKeys = {
+        'api': ['contentType', 'content'],
+        'content': ['type', 'render']
+    }
+    const aboutMeMeta = Constants.createContentRendererMeta(state.master.aboutMe || [], aboutMeMetaKeys)
+
     return {
-        aboutMe: state.master.aboutMe,
+        aboutMe: aboutMeMeta,
     }
 }
 

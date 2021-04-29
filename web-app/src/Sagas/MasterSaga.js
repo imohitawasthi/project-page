@@ -19,7 +19,10 @@ function* fetchMenuOptions() {
 function* fetchAboutMe() {
     const response = yield call(Assay.Master.fetchAboutMe, Assay.Master, null)
     if (response && !!!response.error) {
-        yield put(Actions.storeAboutMe(response))
+        let data = response[0] || {}
+        data = data.aboutMeContent || []
+
+        yield put(Actions.storeAboutMe(data))
     } else {
         yield put(Actions.storeAboutMe([]))
     }

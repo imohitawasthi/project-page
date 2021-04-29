@@ -1,0 +1,43 @@
+@import "./../global/global";
+@import "./../global/theme";
+
+.content-renderer {
+
+    display: grid;
+
+    .heading {
+        @extend .font-size-big-heading;
+        @extend .margin-tb-32;
+    }
+
+    .sub-heading {
+        @extend .font-size-heading;
+        @extend .margin-tb-16;
+    }
+
+    .content {
+        @extend .margin-tb-16;
+    }
+
+    .remark {
+        border-left: 2px solid $color-h-I;
+
+        @extend .margin-tb-16;
+        @extend .padding-8;
+    }
+
+    .code {
+        background: $color-h-III;
+
+        @extend .margin-tb-16;
+        @extend .padding-8;
+    }
+
+    .example {
+        border-left: 2px solid $color-h-I;
+    }
+
+    .custom {
+        @extend .margin-tb-16;
+    }
+}

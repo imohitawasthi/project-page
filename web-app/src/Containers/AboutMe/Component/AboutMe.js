@@ -1,7 +1,8 @@
 import React, { Component } from 'react';
 
-class AboutMe extends Component {
+import ContentRenderer from './../../../Components/contentRenderer'
 
+class AboutMe extends Component {
 
   constructor(props){
     super(props)
@@ -14,13 +15,20 @@ class AboutMe extends Component {
     this.props.fetchAboutMe()
   }
 
+  renderAboutMeContent = () => {
+    const { aboutMe } = this.props
+
+    return <ContentRenderer meta={aboutMe}/>
+  }
+
   render() {
 
     const { name } = this.state
 
     return (
-      <div className="about-me-container">
-        <div className="about-me-name">{name}</div>
+      <div className='about-me-container'>
+        <div className='about-me-name'>{name}</div>
+        <div className='about-me-content'>{this.renderAboutMeContent()}</div>
       </div>
     );
   }

@@ -2,8 +2,15 @@
 
 .about-me-container{
     
+    display: grid;
+
     .about-me-name {
 
-        @extend .font-size-title;
+        @extend .font-size-big-heading;
+        @extend .margin-tb-16;
+    }
+
+    .about-me-content {
+        
     }
 }
