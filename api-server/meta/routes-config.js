@@ -17,7 +17,7 @@ let controllers = [
         }
     },
     {
-        path: "good-read",
+        path: "good-reads",
         controller: goodReadController,
         methods: {
             GET: [''],
@@ -35,7 +35,7 @@ let controllers = [
         }
     },
     {
-        path: "post",
+        path: "posts",
         controller: postController,
         methods: {
             GET: [''],
@@ -44,7 +44,7 @@ let controllers = [
         }
     },
     {
-        path: "project",
+        path: "projects",
         controller: projectController,
         methods: {
             GET: ['/:inProgress'],

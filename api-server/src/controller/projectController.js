@@ -3,7 +3,7 @@ let Constants = require("../constants")
 
 //GET
 exports.get = function (req, res) {
-    Model.find({ isActive: true, isInProgress: res.params.inProgress || false }, null, { sort: { modifiedAt: -1 } }, (err, data) =>
+    Model.find({ isActive: true, isInProgress: req.params.inProgress || false }, null, { sort: { modifiedAt: -1 } }, (err, data) =>
         Constants.handleResponse(err, res, data)
     )
 }
