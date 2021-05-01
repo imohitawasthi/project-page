@@ -5,7 +5,7 @@ import Types from "../Actions/Types"
 import Assay from "../Assay/Assay"
 
 function* fetchMenuOptions() {
-    const response = yield call(Assay.Master.fetchMenuOptions, Assay.Master, null)
+    const response = yield call(Assay.Master.fetchMenuOptions, Assay.Master)
     if (response && !!!response.error) {
         let data = response[0] || {}
         data = data.metadataContent || []
@@ -17,7 +17,7 @@ function* fetchMenuOptions() {
 }
 
 function* fetchAboutMe() {
-    const response = yield call(Assay.Master.fetchAboutMe, Assay.Master, null)
+    const response = yield call(Assay.Master.fetchAboutMe, Assay.Master)
     if (response && !!!response.error) {
         let data = response[0] || {}
         data = data.aboutMeContent || []
@@ -29,11 +29,8 @@ function* fetchAboutMe() {
 }
 
 function* fetchCompletedProjects() {
-    const response = yield call(Assay.Master.fetchCompletedProjects, Assay.Master, null)
+    const response = yield call(Assay.Master.fetchCompletedProjects, Assay.Master)
     if (response && !!!response.error) {
-        let data = response[0] || {}
-        data = data.aboutMeContent || []
-        
         yield put(Actions.storeCompletedProjects(response))
     } else {
         yield put(Actions.storeCompletedProjects([]))
@@ -41,7 +38,7 @@ function* fetchCompletedProjects() {
 }
 
 function* fetchPendingProjects() {
-    const response = yield call(Assay.Master.fetchPendingProjects, Assay.Master, null)
+    const response = yield call(Assay.Master.fetchPendingProjects, Assay.Master)
     if (response && !!!response.error) {
         yield put(Actions.storePendingProjects(response))
     } else {
@@ -50,7 +47,7 @@ function* fetchPendingProjects() {
 }
 
 function* fetchPosts() {
-    const response = yield call(Assay.Master.fetchPosts, Assay.Master, null)
+    const response = yield call(Assay.Master.fetchPosts, Assay.Master)
     if (response && !!!response.error) {
         yield put(Actions.storePosts(response))
     } else {
@@ -59,7 +56,7 @@ function* fetchPosts() {
 }
 
 function* fetchGoodReads() {
-    const response = yield call(Assay.Master.fetchGoodReads, Assay.Master, null)
+    const response = yield call(Assay.Master.fetchGoodReads, Assay.Master)
     if (response && !!!response.error) {
         yield put(Actions.storeGoodReads(response))
     } else {

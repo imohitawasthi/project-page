@@ -4,11 +4,15 @@ import Posts from './Component/Posts'
 import Actions from '../../Actions/Creators'
 
 const mapStateToProps = (state, ownProps) => {
-    return {}
+    return {
+        posts: state.master.posts || []
+    }
 }
 
 const mapDispatchToProps = (dispatch) => {
-    return {}
+    return {
+        fetchPosts: () => dispatch(Actions.fetchPosts()), 
+    }
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(Posts)

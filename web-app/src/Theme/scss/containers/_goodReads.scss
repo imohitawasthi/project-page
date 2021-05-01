@@ -1,0 +1,44 @@
+@import "./../global/global";
+@import "./../global/theme";
+
+.good-read-container {
+    display: grid;
+
+    .good-read-root {
+        display: grid;
+
+        .good-read {
+            display: flex;
+
+            .good-read-name {
+                cursor: pointer;
+
+                @extend .padding-8;
+
+                @extend .animation-transition-ease;
+            }
+
+            .good-read-name:hover {
+                background: $color-h-I;
+            }
+
+            .good-read-date {
+                position: relative;
+
+                top: 0.5px;
+
+                color: $color-h-II;
+
+                @extend .padding-8;
+                @extend .font-style-italic;
+                @extend .font-size-footnote;
+                @extend .font-style-bold;
+            }
+
+            @extend .margin-tb-8;
+            @extend .margin-n-lr-8;
+        }
+
+        @extend .margin-tb-16;
+    }
+}

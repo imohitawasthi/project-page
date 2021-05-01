@@ -1,10 +1,13 @@
 import React, { Component } from "react"
+
 import History from "../../../history"
 
 class App extends Component {
     constructor(props) {
         super(props)
-        this.state = {}
+        this.state = {
+            currentRoute: "",
+        }
     }
 
     componentDidMount() {
@@ -12,16 +15,14 @@ class App extends Component {
     }
 
     renderMenu = () => {
-        const { menuOptions, currentRoute } = this.props
+        const { menuOptions, location } = this.props
+        const { pathname } = location
 
         return menuOptions.map((element, index) => (
             <div
-                className={`app-option tab ${element.url === currentRoute ? "tab-active" : ""}`}
+                className={`app-option tab ${pathname.match(element.url) ? "tab-active" : ""}`}
                 key={index}
-                onClick={() => {
-                    History.push(element.url)
-                    this.props.changeRoute(element.url)
-                }}
+                onClick={() => History.push(element.url)}
             >
                 {element.label}
             </div>

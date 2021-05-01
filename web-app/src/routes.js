@@ -11,49 +11,37 @@ import Projects from "./Containers/Projects"
 import Posts from "./Containers/Posts"
 import GoodReads from "./Containers/GoodReads"
 
-const ROUTE_MAP = {
-    'about-me': <AboutMe />,
-    'projects': <Projects />,
-    'posts': <Posts />,
-    'good-reads': <GoodReads />
-}
-
-const ROUTE_KEYS = Object.keys(ROUTE_MAP)
-
 class Routes extends React.Component {
     constructor(props) {
         super(props)
 
-        this.state = {
-            currentRoute: ROUTE_KEYS[0]
-        }
+        this.state = {}
     }
 
-    componentDidUpdate(prevProp){
-        if ( prevProp.currentRoute !== this.props.currentRoute ) {
-            if ( !ROUTE_KEYS.includes(this.props.currentRoute) ) {
-                history.push(ROUTE_KEYS[0])
-            }else {
-                this.setState({ currentRoute: this.props.currentRoute })
-            }
-        }
-    }
+    componentDidUpdate(prevProp) {}
 
     render() {
-        const { currentRoute } = this.state
 
         return (
-            <div>
-                <App>
-                    {ROUTE_MAP[currentRoute] || ROUTE_MAP[ROUTE_KEYS[0]]}
-                </App>
-            </div>
+            <section>
+                <Switch>
+                    <App>
+                        <Route path="/about-me" component={AboutMe} exact />
+                        <Route path="/projects" component={Projects} exact />
+                        <Route path="/posts" component={Posts} exact />
+                        <Route path="/posts/:id" component={Posts} exact />
+                        <Route path="/good-reads" component={GoodReads} exact />
+
+                        <Redirect to="/about-me" />
+                    </App>
+                </Switch>
+            </section>
         )
     }
 }
 
 const mapStateToProps = (state, ownProps) => ({
-    currentRoute: state.master.currentRoute
+    currentRoute: state.master.currentRoute,
 })
 
 const mapDispatchToProps = (dispatch) => ({})

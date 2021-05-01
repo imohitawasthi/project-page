@@ -22,10 +22,10 @@ class Api {
 
         this.fetchMenuOptions = () => this.apiClient.get("metadata/MENU")
         this.fetchAboutMe = () => this.apiClient.get("about-me", null, {})
-        this.fetchCompletedProjects = () => this.apiClient.get("project", null, { params: { inProgress: false } })
-        this.fetchPendingProjects = () => this.apiClient.get("project", null, { params: { inProgress: true } })
-        this.fetchPosts = () => this.apiClient.get("post", null, {})
-        this.fetchGoodReads = () => this.apiClient.get("good-read", null, {})
+        this.fetchCompletedProjects = () => this.apiClient.get("projects/false", null, { })
+        this.fetchPendingProjects = () => this.apiClient.get("projects/true", null, { })
+        this.fetchPosts = () => this.apiClient.get("posts", null, {})
+        this.fetchGoodReads = () => this.apiClient.get("good-reads", null, {})
 
         this.setToken = (token) => {
             this.apiClient.setHeader("Authorization", "Bearer " + token)

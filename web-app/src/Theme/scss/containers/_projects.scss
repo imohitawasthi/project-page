@@ -1,0 +1,44 @@
+@import "./../global/global";
+@import "./../global/theme";
+
+.project-container {
+    display: grid;
+
+    .project-list {
+        display: grid;
+
+        .project {
+            display: flex;
+
+            .project-name {
+                border-bottom: 3px solid $color-h-III;
+                
+                cursor: pointer;
+
+                @extend .font-style-semi-bold;
+                @extend .padding-8;
+                @extend .animation-transition-ease;
+            }
+
+            .project-name:hover {
+                border-bottom: 3px solid $color-h-I;
+                
+                background: $color-h-I;
+            }
+
+            .project-description {
+                @extend .padding-8;
+            }
+
+            @extend .margin-tb-8;
+            @extend .margin-n-lr-8;
+        }
+
+        .project-in-progress-head {
+            @extend .margin-tb-8;
+            @extend .font-size-big-heading;
+        }
+
+        @extend .margin-tb-16;
+    }
+}

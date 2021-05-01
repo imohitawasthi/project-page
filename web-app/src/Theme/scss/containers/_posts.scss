@@ -1,0 +1,50 @@
+@import "./../global/global";
+@import "./../global/theme";
+
+.post-container {
+    display: grid;
+
+    .post-root {
+        display: grid;
+
+        .post {
+            display: flex;
+
+            .post-description {
+                cursor: pointer;
+
+                @extend .padding-8;
+
+                @extend .animation-transition-ease;
+            }
+
+            .post-description:hover {
+                background: $color-h-I;
+            }
+
+            .post-date {
+                position: relative;
+
+                top: 0.5px;
+
+                color: $color-h-II;
+
+                @extend .padding-8;
+                @extend .font-style-italic;
+                @extend .font-size-footnote;
+                @extend .font-style-bold;
+            }
+
+            .post-content {
+                overflow: auto;
+
+                @extend .padding-lr-8;
+            }
+
+            @extend .margin-tb-8;
+            @extend .margin-n-lr-8;
+        }
+
+        @extend .margin-tb-16;
+    }
+}
