@@ -15,25 +15,49 @@ const contentRenderer = ({ meta }) => {
 
     const renderContent = (element, index) => (
         <div key={index} className="content">
-            {typeof element.render === "object" && element.render.length ? element.render.map((e, i) => <div key={`${index}-${i}`}>{e}</div>) : element.render}
+            {typeof element.render === "object" && element.render.length
+                ? element.render.map((e, i) => (
+                      <div className="sub" key={`${index}-${i}`}>
+                          {e}
+                      </div>
+                  ))
+                : element.render}
         </div>
     )
 
     const renderRemark = (element, index) => (
         <div key={index} className="remark">
-            {typeof element.render === "object" && element.render.length ? element.render.map((e, i) => <div key={`${index}-${i}`}>{e}</div>) : element.render}
+            {typeof element.render === "object" && element.render.length
+                ? element.render.map((e, i) => (
+                      <div className="sub" key={`${index}-${i}`}>
+                          {e}
+                      </div>
+                  ))
+                : element.render}
         </div>
     )
 
     const renderCode = (element, index) => (
         <div key={index} className="code">
-            {typeof element.render === "object" && element.render.length ? element.render.map((e, i) => <div key={`${index}-${i}`}>{e}</div>) : element.render}
+            {typeof element.render === "object" && element.render.length
+                ? element.render.map((e, i) => (
+                      <div className="sub" key={`${index}-${i}`}>
+                          {e}
+                      </div>
+                  ))
+                : element.render}
         </div>
     )
 
     const renderExample = (element, index) => (
         <div key={index} className="example">
-            {typeof element.render === "object" && element.render.length ? element.render.map((e, i) => <div key={`${index}-${i}`}>{e}</div>) : element.render}
+            {typeof element.render === "object" && element.render.length
+                ? element.render.map((e, i) => (
+                      <div className="sub" key={`${index}-${i}`}>
+                          {e}
+                      </div>
+                  ))
+                : element.render}
         </div>
     )
 

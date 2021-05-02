@@ -11,17 +11,21 @@ class GoodReads extends Component {
     }
 
     componentDidMount() {
-      this.props.fetchGoodReads()
+        this.props.fetchGoodReads()
     }
 
     renderGoodReadList = () => {
         const { goodReads } = this.props
-
         return goodReads.map(
             (e, i) =>
                 e.goodReadName && (
                     <div className="good-read" key={i}>
-                        <span className="good-read-name" onClick={() => {}}>
+                        <span
+                            className="good-read-name"
+                            onClick={() => {
+                                window.open(e.goodReadLink, "_blank")
+                            }}
+                        >
                             {e.goodReadName}
                         </span>
                         <span className="good-read-date">{moment(e.goodReadAddedOn).format(Constants.dateFormat)}</span>

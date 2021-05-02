@@ -11,7 +11,7 @@ var schema = mongoose.Schema({
         required: true
     },
     postContent: [{
-        content: String,
+        content: Array,
         contentType: String,
     }],
     isActive: {

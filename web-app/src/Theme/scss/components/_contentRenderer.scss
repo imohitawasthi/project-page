@@ -20,7 +20,7 @@
     }
 
     .remark {
-        border-left: 2px solid $color-h-I;
+        border-left: 2px solid $color-h-II;
 
         @extend .margin-tb-16;
         @extend .padding-8;
@@ -34,7 +34,22 @@
     }
 
     .example {
-        border-left: 2px solid $color-h-I;
+        border-left: 2px solid $color-h-II;
+        
+        @extend .padding-8;
+        @extend .margin-tb-16;
+    }
+
+    .sub {
+        @extend .margin-tb-16;
+    }
+
+    .sub:first-child {
+        margin-top: 0px;
+    }
+
+    .sub:nth-last-child(1) {
+        margin-bottom: 0px;
     }
 
     .custom {

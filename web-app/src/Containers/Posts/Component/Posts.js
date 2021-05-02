@@ -36,12 +36,16 @@ class Posts extends Component {
     }
 
     checkPostChange(prevProps, prevState) {
-        const { location } = this.props
+        const { posts, location } = this.props
         const { currentPost, currentView } = this.state
 
         if (location.pathname.match(/post/g)) {
             let postID = location.search.split("=")
             postID = postID && postID[1]
+
+            postID = posts.filter((e) => e._id === postID)
+
+            postID = postID && postID.length ? postID[0]._id : null
 
             if (currentPost !== postID) {
                 this.setState({ currentPost: postID, currentView: postID ? VIEWS.POST : VIEWS.LIST })
@@ -59,7 +63,7 @@ class Posts extends Component {
                         <span
                             className="post-description"
                             onClick={() => {
-                                History.push(`/posts?id=${i}`)
+                                History.push(`/posts?id=${e._id}`)
                             }}
                         >
                             {e.postDescription}
@@ -74,7 +78,8 @@ class Posts extends Component {
         const { currentPost } = this.state
 
         const { posts } = this.props
-        const post = posts[currentPost] || {}
+        let post = posts.filter((e) => e._id === currentPost)
+        post = post && post.length ? post[0] : {}
 
         const meta = Constants.createContentRendererMeta(post.postContent || [], META_KEYS)
 

@@ -3,7 +3,7 @@ import { Switch, Route, Redirect, withRouter } from "react-router-dom"
 import { connect } from "react-redux"
 import { withCookies } from "react-cookie"
 
-import history from "./history"
+import History from "./history"
 
 import App from "./Containers/App"
 import AboutMe from "./Containers/AboutMe"
@@ -11,11 +11,31 @@ import Projects from "./Containers/Projects"
 import Posts from "./Containers/Posts"
 import GoodReads from "./Containers/GoodReads"
 
+const PATHS = {
+    ABOUT_ME: '/about-me',
+    PROJECTS: '/projects',
+    POSTS: '/posts',
+    GOOD_READS: '/good-reads',
+}
+
 class Routes extends React.Component {
     constructor(props) {
         super(props)
 
         this.state = {}
+    }
+
+    componentDidMount() {
+        const { location } = this.props
+        const { pathname, search } = location || {}
+
+        let paths = Object.keys(PATHS)
+        paths = paths.map(e => e.toLowerCase())
+        paths = paths.filter(e => pathname.match(e))
+
+        if ( pathname && paths && paths[0] ) {
+            History.push(`${pathname}${search || ''}`)
+        }
     }
 
     componentDidUpdate(prevProp) {}
@@ -26,13 +46,12 @@ class Routes extends React.Component {
             <section>
                 <Switch>
                     <App>
-                        <Route path="/about-me" component={AboutMe} exact />
-                        <Route path="/projects" component={Projects} exact />
-                        <Route path="/posts" component={Posts} exact />
-                        <Route path="/posts/:id" component={Posts} exact />
-                        <Route path="/good-reads" component={GoodReads} exact />
+                        <Route path={PATHS.ABOUT_ME} component={AboutMe} exact />
+                        <Route path={PATHS.PROJECTS} component={Projects} exact />
+                        <Route path={PATHS.POSTS} component={Posts} exact />
+                        <Route path={PATHS.GOOD_READS} component={GoodReads} exact />
 
-                        <Redirect to="/about-me" />
+                        <Redirect to={PATHS.ABOUT_ME} />
                     </App>
                 </Switch>
             </section>
