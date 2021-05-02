@@ -15,6 +15,7 @@
                 
                 cursor: pointer;
 
+                @extend .border-radius-2;
                 @extend .font-style-semi-bold;
                 @extend .padding-8;
                 @extend .animation-transition-ease;

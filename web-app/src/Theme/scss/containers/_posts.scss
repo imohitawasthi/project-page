@@ -13,8 +13,8 @@
             .post-description {
                 cursor: pointer;
 
+                @extend .border-radius-2;
                 @extend .padding-8;
-
                 @extend .animation-transition-ease;
             }
 
@@ -25,14 +25,13 @@
             .post-date {
                 position: relative;
 
-                top: 0.5px;
+                top: 1.2px;
 
-                color: $color-h-II;
+                color: $color-primary;
 
                 @extend .padding-8;
                 @extend .font-style-italic;
                 @extend .font-size-footnote;
-                @extend .font-style-bold;
             }
 
             .post-content {

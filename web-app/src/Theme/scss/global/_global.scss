@@ -291,13 +291,13 @@
     padding: 8px 16px;
 
     border: 1px solid $color-primary;
-    border-radius: 4px;
 
     background-color: $color-primary;
 
     outline: none;
     cursor: pointer;
 
+    @extend .border-radius-4;
     @extend .font-size-base;
     @extend .font-color-white;
     @extend .font-style-bold;
@@ -316,13 +316,13 @@
     padding: 8px 16px;
 
     border: 1px solid $color-primary;
-    border-radius: 4px;
 
     background-color: $color-transparent;
 
     outline: none;
     cursor: pointer;
 
+    @extend .border-radius-4;
     @extend .font-size-base;
     @extend .font-color-black;
     @extend .font-style-bold;
@@ -370,6 +370,7 @@
 
     cursor: pointer;
 
+    @extend .border-radius-2;
     @extend .animation-transition-ease;
 }
 
@@ -379,4 +380,12 @@
 
 .tab:hover {
     background: $color-h-I;
+}
+
+.border-radius-4 {
+    border-radius: 4px;
+}
+
+.border-radius-2 {
+    border-radius: 2px;
 }
