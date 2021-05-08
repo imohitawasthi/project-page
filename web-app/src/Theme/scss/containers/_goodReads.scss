@@ -13,6 +13,8 @@
             .good-read-name {
                 cursor: pointer;
 
+                max-width: 88%;
+
                 @extend .border-radius-2;
                 @extend .padding-8;
                 @extend .animation-transition-ease;
@@ -23,9 +25,7 @@
             }
 
             .good-read-date {
-                position: relative;
-
-                top: 1.2px;
+                margin: auto 0px;
 
                 color: $color-primary;
 

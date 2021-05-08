@@ -28,7 +28,9 @@ class GoodReads extends Component {
                         >
                             {e.goodReadName}
                         </span>
-                        <span className="good-read-date">{moment(e.goodReadAddedOn).format(Constants.dateFormat)}</span>
+                        <span className="good-read-date">
+                        {moment(e.goodReadAddedOn).format(Constants.dateFormat)}
+                        </span>
                     </div>
                 )
         ) : Constants.noDataMessage()

@@ -23,7 +23,7 @@ class Projects extends Component {
                               window.open(e.projectLinkGit, "_blank")
                           }}
                       >
-                          {e.projectName}
+                          <span>{e.projectName}</span>
                       </span>
                       <span className="project-description">{e.projectDescription}</span>
                   </div>
@@ -41,7 +41,7 @@ class Projects extends Component {
                         window.open(e.projectLinkGit, "_blank")
                     }}
                 >
-                    {e.projectName}
+                    <span>{e.projectName}</span>
                 </span>
                 <span className="project-description">{e.projectDescription}</span>
             </div>

@@ -11,8 +11,6 @@ import configureStore from "./Store/Store"
 import Assay from "./Assay/Assay"
 import Constants from "./Assay/Constants"
 
-import "bootstrap/dist/css/bootstrap.min.css"
-
 import "./Theme/scss/index.scss"
 
 const store = configureStore()
