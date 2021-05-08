@@ -39,7 +39,7 @@ class Posts extends Component {
         const { posts, location } = this.props
         const { currentPost, currentView } = this.state
 
-        if (location.pathname.match(/post/g)) {
+        if (location.pathname.match(/post/g) && posts && posts.length) {
             let postID = location.search.split("=")
             postID = postID && postID[1]
 
@@ -56,7 +56,7 @@ class Posts extends Component {
     renderPostList = () => {
         const { posts } = this.props
 
-        return posts.map(
+        return posts && posts.length ? posts.map(
             (e, i) =>
                 e.postDescription && (
                     <div className="post" key={i}>
@@ -71,14 +71,14 @@ class Posts extends Component {
                         <span className="post-date">{moment(e.postPublishedOn).format(Constants.dateFormat)}</span>
                     </div>
                 )
-        )
+        ) : Constants.noDataMessage()
     }
 
     renderPost = () => {
         const { currentPost } = this.state
 
         const { posts } = this.props
-        let post = posts.filter((e) => e._id === currentPost)
+        let post = posts && posts.length ? posts.filter((e) => e._id === currentPost) : []
         post = post && post.length ? post[0] : {}
 
         const meta = Constants.createContentRendererMeta(post.postContent || [], META_KEYS)

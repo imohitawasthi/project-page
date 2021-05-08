@@ -16,7 +16,7 @@ class GoodReads extends Component {
 
     renderGoodReadList = () => {
         const { goodReads } = this.props
-        return goodReads.map(
+        return goodReads && goodReads.length ? goodReads.map(
             (e, i) =>
                 e.goodReadName && (
                     <div className="good-read" key={i}>
@@ -31,7 +31,7 @@ class GoodReads extends Component {
                         <span className="good-read-date">{moment(e.goodReadAddedOn).format(Constants.dateFormat)}</span>
                     </div>
                 )
-        )
+        ) : Constants.noDataMessage()
     }
 
     render() {

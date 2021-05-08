@@ -1,3 +1,5 @@
+import React from "react"
+
 const apiPort = ""
 const apiHost = "api-pp.thesapiens.in"
 const apiProtocol = "http://"
@@ -25,6 +27,12 @@ const createContentRendererMeta = (payload, keyMap) => {
     })
 }
 
+const noDataMessage = () => (
+    <div className="no-data-message">
+        Oops! no data available.
+    </div>
+)
+
 export default {
     apiPort,
     apiHost,
@@ -34,4 +42,5 @@ export default {
 
     processResponse,
     createContentRendererMeta,
+    noDataMessage
 }

@@ -382,10 +382,22 @@
     background: $color-h-I;
 }
 
+// Boarder Radius
+
 .border-radius-4 {
     border-radius: 4px;
 }
 
 .border-radius-2 {
     border-radius: 2px;
+}
+
+// No data message
+
+.no-data-message {
+    display: flex;
+
+    justify-content: center;
+
+    @extend .padding-16;
 }
