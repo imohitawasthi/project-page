@@ -1,8 +1,7 @@
 import React from "react"
 
-const apiPort = ":8080"
-const apiHost = "localhost"
-// const apiHost = "api-pp.thesapiens.in"
+const apiPort = ""
+const apiHost = "api-pp.thesapiens.in"
 const apiProtocol = "http://"
 
 const dateFormat = "MMM Do YY"
