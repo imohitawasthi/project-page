@@ -12,7 +12,7 @@ let app = express()
 
 app.use(
     cors({
-        origin: "http://localhost:3000",
+        origin: "*",
         optionsSuccessStatus: 200,
     })
 )
