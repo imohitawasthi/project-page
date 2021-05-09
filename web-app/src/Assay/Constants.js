@@ -2,7 +2,7 @@ import React from "react"
 
 const apiPort = ""
 const apiHost = "api-pp.thesapiens.in"
-const apiProtocol = "http://"
+const apiProtocol = "https://"
 
 const dateFormat = "MMM Do YY"
 
